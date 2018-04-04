@@ -13,7 +13,7 @@ class RedditFeed extends Component {
     fetch(url) {
         var that = this;
         if (url) {
-            fetch('https://www.reddit.com/r/' + url + '.json' + '?count=' + 25 + '&after=' + this.state.lastPostName)
+            fetch('https://www.reddit.com/r/' + url + '.json?count=' + 25 + '&after=' + this.state.lastPostName)
                 .then((response) => response.json())
                 .then((result) => {
                     that.setState({
