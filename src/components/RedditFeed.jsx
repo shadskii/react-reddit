@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import RedditPost from './RedditPost';
+import PropTypes from 'prop-types'
 
 class RedditFeed extends Component {
     constructor(props) {
@@ -24,17 +25,23 @@ class RedditFeed extends Component {
         }
     }
     componentWillMount() {
-        this.fetch("reactjs");
+        this.fetch(this.props.subreddit);
     }
     render() {
         return (
             <div className="container">
-                {this.state.posts.map(function (el, index) {
-                    return <RedditPost info={el.data} key={index} />
-                })}
-                <FlatButton onClick={() => this.fetch('reactjs')} label="more" />
+                {this.state.posts.map((el, index) =>
+                    <RedditPost info={el.data} key={index} />
+                )}
+                <FlatButton
+                    onClick={() => this.fetch(this.props.subreddit)}
+                    label="more"
+                />
             </div>
         )
     }
+}
+RedditFeed.PropTypes = {
+    subreddit: PropTypes.string.isRequired
 }
 export default RedditFeed;
