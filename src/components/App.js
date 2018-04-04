@@ -4,30 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import '../styles/App.css';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-
-const RedditPost = props => {
-  return (
-    <Card className="post-card">
-      <CardHeader
-        title={props.info.title}
-
-        subtitle={props.info.author}
-        actAsExpander={props.info.is_self === true}
-        showExpandableButton={false}
-      />
-
-      <CardText expandable={props.info.is_self === true}>
-        {props.info.selftext}
-      </CardText>
-      <CardActions>
-        <FlatButton label="View Post" onClick={() => {
-          window.open(props.info.url);
-        }} />
-
-      </CardActions>
-    </Card>
-  );
-}
+import RedditPost from './RedditPost';
 
 class App extends Component {
   constructor(props) {
