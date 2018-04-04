@@ -33,37 +33,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      lastPostName: ''
     };
   }
-  fetchFirst(url) {
+
+  fetch(url) {
     var that = this;
     if (url) {
-      fetch('https://www.reddit.com/r/' + url + '.json').then(function (response) {
-        return response.json();
-      }).then(function (result) {
-
-        that.setState({ posts: result.data.children, lastPostName: result.data.children[result.data.children.length - 1].data.name });
-
-        console.log(that.state.posts);
-      });
-    }
-  }
-  fetchNext(url, lastPostName) {
-    var that = this;
-    if (url) {
-      fetch('https://www.reddit.com/r/' + url + '.json' + '?count=' + 25 + '&after=' + lastPostName).then(function (response) {
-        return response.json();
-      }).then(function (result) {
-
-        that.setState({ posts: result.data.children, lastPostName: result.data.children[result.data.children.length - 1].data.name });
-        console.log(that.state.posts);
-      });
+      fetch('https://www.reddit.com/r/' + url + '.json' + '?count=' + 25 + '&after=' + this.state.lastPostName)
+        .then((response) => response.json())
+        .then((result) => {
+          that.setState({
+            posts: result.data.children,
+            lastPostName: result.data.children[result.data.children.length - 1].data.name
+          });
+        });
     }
   }
   componentWillMount() {
-
-    this.fetchFirst("reactjs");
+    this.fetch("reactjs");
   }
 
 
@@ -72,16 +61,16 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <AppBar
-            title={<span>Reactjs Reddit</span>}
+            title={"Reactjs Reddit"}
             showMenuIconButton={false}
-            iconElementRight={<FlatButton onClick={() => this.fetchNext('reactjs', this.state.lastPostName)} label="next" />
+            iconElementRight={<FlatButton onClick={() => this.fetch('reactjs')} label="next" />
             }
           />
           <div className="container">
             {this.state.posts.map(function (el, index) {
               return <RedditPost info={el.data} key={index} />
             })}
-            <FlatButton onClick={() => this.fetchNext('reactjs', this.state.lastPostName)} label="more" />
+            <FlatButton onClick={() => this.fetch('reactjs')} label="more" />
           </div>
         </div>
 
