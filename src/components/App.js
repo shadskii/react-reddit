@@ -5,7 +5,6 @@ import RedditFeed from './RedditFeed';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../actions';
-import { zIndex } from 'material-ui/styles';
 
 const App = ({subreddit, actions}) => (
   <div className="App">
