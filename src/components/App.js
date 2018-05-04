@@ -2,17 +2,32 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import '../styles/App.css';
 import RedditFeed from './RedditFeed';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as Actions from '../actions';
+import { zIndex } from 'material-ui/styles';
 
-const App = (props) => (
+const App = ({subreddit, actions}) => (
   <div className="App">
     <AppBar
       title={"Reactjs Reddit"}
       showMenuIconButton={false}
     />
     <RedditFeed
-      subreddit='reactjs'
+      subreddit={subreddit}
     />
   </div>
 );
 
-export default App;
+const mapStateToProps = state => ({
+  subreddit: state.subreddit
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

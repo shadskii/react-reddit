@@ -13,6 +13,7 @@ class RedditFeed extends Component {
     }
     fetch(url) {
         var that = this;
+        console.log(url);
         if (url) {
             fetch('https://www.reddit.com/r/' + url + '.json?count=' + 25 + '&after=' + this.state.lastPostName)
                 .then((response) => response.json())
@@ -21,6 +22,8 @@ class RedditFeed extends Component {
                         posts: result.data.children,
                         lastPostName: result.data.children[result.data.children.length - 1].data.name
                     });
+                }).catch((err)=>{
+                    console.log(err);
                 });
         }
     }

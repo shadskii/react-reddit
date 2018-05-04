@@ -1,0 +1,1 @@
+export const CHANGE_SUBREDDIT = 'CHANGE_SUBREDDIT';
