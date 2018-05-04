@@ -10,7 +10,7 @@ import { zIndex } from 'material-ui/styles';
 const App = ({subreddit, actions}) => (
   <div className="App">
     <AppBar
-      title={"Reactjs Reddit"}
+      title= {subreddit}
       showMenuIconButton={false}
     />
     <RedditFeed
