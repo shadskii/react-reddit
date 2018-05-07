@@ -9,7 +9,7 @@ import * as Actions from '../actions';
 const App = ({subreddit, actions}) => (
   <div className="App">
     <AppBar
-      title= {subreddit}
+      title={subreddit}
       showMenuIconButton={false}
     />
     <RedditFeed
