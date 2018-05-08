@@ -5,13 +5,19 @@ import RedditFeed from './RedditFeed';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../actions';
+import MenuDrawer from './MenuDrawer';
 
-const App = ({subreddit, actions}) => (
+const App = ({subreddit, actions, menu}) => (
   <div className="wrapper">
+    <MenuDrawer 
+      toggleMenu = {actions.toggleMenu}
+      menu={menu}
+    />
     <AppBar
       title={subreddit}
-      showMenuIconButton={false}
+      showMenuIconButton={true}
       style={{ position: 'fixed' }}
+      onLeftIconButtonClick={actions.toggleMenu}
     />
     <RedditFeed
       subreddit={subreddit}
@@ -20,7 +26,8 @@ const App = ({subreddit, actions}) => (
 );
 
 const mapStateToProps = state => ({
-  subreddit: state.subreddit
+  subreddit: state.subreddit,
+  menu: state.view
 })
 
 const mapDispatchToProps = dispatch => ({

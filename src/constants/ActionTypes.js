@@ -1,1 +1,2 @@
 export const CHANGE_SUBREDDIT = 'CHANGE_SUBREDDIT';
+export const OPEN_MENU = 'MENU_OPEN';
