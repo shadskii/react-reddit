@@ -7,10 +7,11 @@ import { connect } from 'react-redux';
 import * as Actions from '../actions';
 
 const App = ({subreddit, actions}) => (
-  <div className="App">
+  <div className="wrapper">
     <AppBar
       title={subreddit}
       showMenuIconButton={false}
+      style={{ position: 'fixed' }}
     />
     <RedditFeed
       subreddit={subreddit}

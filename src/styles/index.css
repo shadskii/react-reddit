@@ -1,22 +1,36 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
-body {
+html,body {
     font-family: "Roboto", sans-serif;
     background: #F7F8FA;
     margin: 0;
     padding: 0;
+    height:100%;
 }
 
 #root {
     min-height: 100vh;
 }
 
-.component--appbar {
-    position: fixed;
+.content-scroll{
+    overflow: auto;
+    min-height: 2em;
+    padding-top: 70px;
+    padding-bottom: 62px;
+    overflow-x: hidden;
+  }
+  .wrapper{
     width: 100%;
-    z-index: 10;
-}
-
-.component--content {
-    padding-top: 64px;
-}
+    height: 100%;
+  }
+  
+  .foot {
+    bottom:0;
+    position:fixed;
+    width: 100%;
+  }
+  .head{
+    width: 100%;
+    top:0;
+    position: fixed;
+  }
