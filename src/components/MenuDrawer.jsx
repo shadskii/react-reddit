@@ -8,6 +8,7 @@ import Drawer from 'material-ui/Drawer';
           docked={false}
           width={200}
           open={menu}
+          onRequestChange={(open)=>toggleMenu()}
         >
         </Drawer>
       </div>
