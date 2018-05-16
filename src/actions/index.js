@@ -5,6 +5,6 @@ export const changeSubreddit = name => ({
     name: name
 });
 
-export const toggleMenu = () =>({
+export const toggleMenu = () => ({
     type: types.OPEN_MENU
 })

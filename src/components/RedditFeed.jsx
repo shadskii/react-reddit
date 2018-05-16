@@ -11,7 +11,7 @@ class RedditFeed extends Component {
             lastPostName: ''
         };
     }
-    fetch(url) {
+    fetch (url) {
         var that = this;
         console.log(url);
         if (url) {
@@ -22,15 +22,15 @@ class RedditFeed extends Component {
                         posts: result.data.children,
                         lastPostName: result.data.children[result.data.children.length - 1].data.name
                     });
-                }).catch((err)=>{
+                }).catch((err) => {
                     console.log(err);
                 });
         }
     }
-    componentWillMount() {
+    componentWillMount () {
         this.fetch(this.props.subreddit);
     }
-    render() {
+    render () {
         return (
             <div className="container">
                 {this.state.posts.map((el, index) =>

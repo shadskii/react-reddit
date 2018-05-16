@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import subreddit from './subreddit';
 import view from './view';
 
