@@ -1,7 +1,7 @@
 import React from 'react';
 import Drawer from 'material-ui/Drawer';
 
-const MenuDrawer = ({ toggleMenu, menu }) => {
+const MenuDrawer = ({ toggleMenu, menu, currentSubreddit }) => {
   return (
     <div>
       <Drawer
@@ -10,6 +10,7 @@ const MenuDrawer = ({ toggleMenu, menu }) => {
         open={menu}
         onRequestChange={(open) => toggleMenu()}
       >
+        <h1>{currentSubreddit}</h1>
       </Drawer>
     </div>
   );

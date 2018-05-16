@@ -10,6 +10,7 @@ import MenuDrawer from './MenuDrawer';
 const App = ({ subreddit, actions, menu }) => (
   <div className="wrapper">
     <MenuDrawer
+      currentSubreddit={subreddit}
       toggleMenu={actions.toggleMenu}
       menu={menu}
     />
