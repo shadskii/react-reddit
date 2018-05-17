@@ -3,6 +3,7 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import reddit_icon from '../reddit_icon.png';
 import link_icon from '../link_icon.png';
+import PropTypes from 'prop-types'
 
 const RedditPost = props => {
     let post = props.info;
@@ -33,5 +34,7 @@ const RedditPost = props => {
         </Card>
     );
 }
-
+RedditPost.PropTypes = {
+    data: PropTypes.object.isRequired
+}
 export default RedditPost;

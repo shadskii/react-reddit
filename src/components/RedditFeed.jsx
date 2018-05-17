@@ -34,7 +34,9 @@ class RedditFeed extends Component {
         return (
             <div className="container">
                 {this.state.posts.map((el, index) =>
-                    <RedditPost info={el.data} key={index} />
+                    <RedditPost
+                        info={el.data}
+                        key={index} />
                 )}
                 <FlatButton
                     onClick={() => this.fetch(this.props.subreddit)}
