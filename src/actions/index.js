@@ -1,5 +1,7 @@
 import * as types from '../constants/ActionTypes';
 
+const FEEDSIZE = 25;
+
 export const changeSubreddit = name => ({
     type: types.CHANGE_SUBREDDIT,
     name: name
@@ -7,4 +9,38 @@ export const changeSubreddit = name => ({
 
 export const toggleMenu = () => ({
     type: types.OPEN_MENU
-})
+});
+
+export const invalidateSubreddit = (subreddit) => ({
+    type: types.INVALIDATE_SUBREDDIT,
+    subreddit
+});
+
+export const selectSubreddit = (subreddit) => ({
+    type: types.SELECT_SUBREDDIT,
+    subreddit
+});
+
+export const requestPosts = (subreddit) => ({
+    type: types.REQUEST_POSTS,
+    subreddit
+});
+
+export const receivePosts = (subreddit, json) => {
+    let jsonPosts = json.data.children.map(child => child.data);
+    return {
+        type: types.RECEIVE_POSTS,
+        subreddit,
+        posts: jsonPosts,
+        lastPost: jsonPosts[jsonPosts.length - 1].name
+    }
+};
+
+const getPosts = (subreddit) => {
+    return dispatch => {
+        dispatch(requestPosts(subreddit));
+        return fetch('https://www.reddit.com/r/${subreddit}.json?count=${FEEDSIZE}')
+            .then(response => response.json())
+            .then(json => dispatch(receivePosts(subreddit, json)));
+    }
+};
