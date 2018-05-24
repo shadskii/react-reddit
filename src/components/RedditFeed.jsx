@@ -25,6 +25,7 @@ class RedditFeed extends Component {
 }
 RedditFeed.PropTypes = {
     subreddit: PropTypes.string.isRequired,
-    posts: PropTypes.array.isRequired
+    posts: PropTypes.array.isRequired,
+    actions: PropTypes.func.isRequired
 }
 export default RedditFeed;
