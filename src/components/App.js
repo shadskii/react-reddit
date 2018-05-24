@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import * as Actions from '../actions';
 import MenuDrawer from './MenuDrawer';
 
-const App = ({ subreddit, actions, menu }) => (
+const App = ({ subreddit, actions, menu, posts }) => (
   <div className="wrapper">
     <MenuDrawer
       currentSubreddit={subreddit}
@@ -22,13 +22,16 @@ const App = ({ subreddit, actions, menu }) => (
     />
     <RedditFeed
       subreddit={subreddit}
+      posts={posts}
+      dispatch={actions.fetchPostsIfNeeded}
     />
   </div>
 );
 
 const mapStateToProps = state => ({
   subreddit: state.subreddit,
-  menu: state.view
+  menu: state.view,
+  posts: state.posts.items
 })
 
 const mapDispatchToProps = dispatch => ({

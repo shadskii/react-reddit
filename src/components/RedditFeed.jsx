@@ -4,43 +4,19 @@ import RedditPost from './RedditPost';
 import PropTypes from 'prop-types'
 
 class RedditFeed extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            posts: [],
-            lastPostName: ''
-        };
-    }
-    fetch (url) {
-        var that = this;
-        let size = 25;
-        console.log(url);
-        if (url) {
-            fetch(`https://www.reddit.com/r/${url}.json?count=${size}&after=${this.state.lastPostName}`)
-                .then((response) => response.json())
-                .then((result) => {
-                    that.setState({
-                        posts: result.data.children,
-                        lastPostName: result.data.children[result.data.children.length - 1].data.name
-                    });
-                }).catch((err) => {
-                    console.log(err);
-                });
-        }
-    }
     componentWillMount () {
-        this.fetch(this.props.subreddit);
+        this.props.dispatch('reactjs');
     }
     render () {
         return (
             <div className="container">
-                {this.state.posts.map((el, index) =>
+                {this.props.posts.map((post, index) =>
                     <RedditPost
-                        info={el.data}
+                        info={post}
                         key={index} />
                 )}
                 <FlatButton
-                    onClick={() => this.fetch(this.props.subreddit)}
+                    // onClick={() => this.fetch(this.props.subreddit)}
                     label="more"
                 />
             </div>
@@ -48,6 +24,7 @@ class RedditFeed extends Component {
     }
 }
 RedditFeed.PropTypes = {
-    subreddit: PropTypes.string.isRequired
+    subreddit: PropTypes.string.isRequired,
+    posts: PropTypes.array.isRequired
 }
 export default RedditFeed;

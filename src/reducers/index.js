@@ -15,11 +15,41 @@ function view (state = false, action) {
             return !state
         default:
             return state;
-
     }
 }
+
+function posts (
+    state = {
+        isFetching: false,
+        didInvalidate: false,
+        items: []
+    },
+    action
+) {
+    switch (action.type) {
+        case types.INVALIDATE_SUBREDDIT:
+            return Object.assign({}, state, {
+                didInvalidate: true
+            });
+        case types.REQUEST_POSTS:
+            return Object.assign({}, state, {
+                isFetching: true,
+                didInvalidate: false
+            });
+        case types.RECEIVE_POSTS:
+            return Object.assign({}, state, {
+                isFetching: false,
+                didInvalidate: false,
+                items: action.posts
+            });
+        default:
+            return state;
+    }
+}
+
 const rootReducer = combineReducers({
     subreddit,
+    posts,
     view
 });
 
