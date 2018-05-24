@@ -23,7 +23,7 @@ const App = ({ subreddit, actions, menu, posts }) => (
     <RedditFeed
       subreddit={subreddit}
       posts={posts}
-      dispatch={actions.fetchPostsIfNeeded}
+      actions={actions}
     />
   </div>
 );

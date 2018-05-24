@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 class RedditFeed extends Component {
     componentWillMount () {
-        this.props.dispatch('reactjs');
+        this.props.actions.fetchPostsIfNeeded('reactjs');
     }
     render () {
         return (
