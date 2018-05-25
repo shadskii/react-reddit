@@ -2,11 +2,6 @@ import * as types from '../constants/ActionTypes';
 
 const FEEDSIZE = 25;
 
-export const changeSubreddit = name => ({
-    type: types.CHANGE_SUBREDDIT,
-    name: name
-});
-
 export const toggleMenu = () => ({
     type: types.OPEN_MENU
 });
