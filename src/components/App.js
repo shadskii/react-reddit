@@ -11,7 +11,7 @@ const App = ({ subreddit, actions, menu, posts }) => (
   <div className="wrapper">
     <MenuDrawer
       currentSubreddit={subreddit}
-      toggleMenu={actions.toggleMenu}
+      actions={actions}
       menu={menu}
     />
     <AppBar

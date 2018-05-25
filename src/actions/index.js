@@ -18,7 +18,7 @@ export const invalidateSubreddit = (subreddit) => ({
 
 export const selectSubreddit = (subreddit) => ({
     type: types.SELECT_SUBREDDIT,
-    subreddit
+    name: subreddit
 });
 
 const requestPosts = (subreddit) => ({

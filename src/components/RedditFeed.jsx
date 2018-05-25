@@ -7,6 +7,12 @@ class RedditFeed extends Component {
     componentWillMount () {
         this.props.actions.fetchPostsIfNeeded('reactjs');
     }
+    componentDidUpdate (prevProps) {
+        if (this.props.subreddit !== prevProps.subreddit) {
+            const { actions, subreddit } = this.props
+            actions.fetchPostsIfNeeded(subreddit);
+        }
+    }
     render () {
         return (
             <div className="container">
