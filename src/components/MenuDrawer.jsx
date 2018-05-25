@@ -14,6 +14,8 @@ const MenuDrawer = ({ actions, menu, currentSubreddit }) => {
         <h1>{currentSubreddit}</h1>
         <List>
           <ListItem primaryText='all' onClick={() => actions.selectSubreddit('all')} />
+          <ListItem primaryText='reactjs' onClick={() => actions.selectSubreddit('reactjs')} />
+          <ListItem primaryText='funny' onClick={() => actions.selectSubreddit('funny')} />
         </List>
       </Drawer>
     </div>
