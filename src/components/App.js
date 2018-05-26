@@ -31,12 +31,12 @@ const App = ({ subreddit, actions, menu, posts }) => (
 const mapStateToProps = state => ({
   subreddit: state.subreddit,
   menu: state.view,
-  posts: state.posts.items
-})
+  posts: state.posts.items,
+});
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(Actions, dispatch)
-})
+});
 
 export default connect(
   mapStateToProps,

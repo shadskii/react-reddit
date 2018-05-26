@@ -15,7 +15,7 @@ class RedditFeed extends Component {
     }
     render () {
         return (
-            <div className="container">
+            <div className="container-fluid content-scroll">
                 {this.props.posts.map((post, index) =>
                     <RedditPost
                         info={post}
