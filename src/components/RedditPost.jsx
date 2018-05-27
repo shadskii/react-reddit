@@ -27,9 +27,11 @@ const RedditPost = props => {
                 {post.selftext}
             </CardText>
             <CardActions>
-                <FlatButton label="View Post" onClick={() => {
-                    window.open(post.url);
-                }} />
+                <FlatButton
+                    label="View Post"
+                    onClick={() => {
+                        window.open(post.url);
+                    }} />
             </CardActions>
         </Card>
     );
