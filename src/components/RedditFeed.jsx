@@ -21,10 +21,6 @@ class RedditFeed extends Component {
                         info={post}
                         key={index} />
                 )}
-                <FlatButton
-                    // onClick={() => this.fetch(this.props.subreddit)}
-                    label="more"
-                />
             </div>
         )
     }
