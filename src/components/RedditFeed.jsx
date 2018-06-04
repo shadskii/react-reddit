@@ -16,9 +16,11 @@ class RedditFeed extends Component {
         return (
             <div className="container-fluid content-scroll">
                 {this.props.posts.map((post, index) =>
-                    <RedditPost
-                        info={post}
-                        key={index} />
+                    <div key={index} className='col-md-3'>
+                        <RedditPost
+                            info={post}
+                            key={index} />
+                    </div>
                 )}
             </div>
         )
