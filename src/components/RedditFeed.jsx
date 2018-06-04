@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FlatButton from 'material-ui/FlatButton';
 import RedditPost from './RedditPost';
 import PropTypes from 'prop-types'
 
