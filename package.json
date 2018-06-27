@@ -4,15 +4,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "gh-pages": "^1.1.0",
-    "material-ui": "^0.20.0",
+    "gh-pages": "^1.2.0",
+    "material-ui": "^0.20.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "predeploy": "npm run build",
